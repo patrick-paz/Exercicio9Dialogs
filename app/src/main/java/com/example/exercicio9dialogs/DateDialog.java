@@ -19,12 +19,12 @@ public class DateDialog extends AppCompatDialogFragment implements DatePickerDia
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Calendar now = Calendar.getInstance();
-        int year = now.get(Calendar.YEAR);
-        int month = now.get(Calendar.MONTH);
-        int day = now.get(Calendar.DAY_OF_MONTH);
+        Calendar agora = Calendar.getInstance();
+        int ano = agora.get(Calendar.YEAR);
+        int mes = agora.get(Calendar.MONTH);
+        int dia = agora.get(Calendar.DAY_OF_MONTH);
 
-        return new DatePickerDialog(getActivity(), this, year, month, day);
+        return new DatePickerDialog(getActivity(), this, ano, mes, dia);
     }
 
     @Override
@@ -39,11 +39,11 @@ public class DateDialog extends AppCompatDialogFragment implements DatePickerDia
     }
 
     @Override
-    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        listener.onDateSet(year, month, dayOfMonth);
+    public void onDateSet(DatePicker view, int ano, int mes, int diaDoMes) {
+        listener.onDateSet(ano, mes, diaDoMes);
     }
 
     public interface OnDateSetListener{
-        void onDateSet(int year, int month, int day);
+        void onDateSet(int ano, int mes, int dia);
     }
 }

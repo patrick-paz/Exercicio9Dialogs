@@ -19,11 +19,11 @@ public class TimeDialog extends AppCompatDialogFragment implements TimePickerDia
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Calendar now = Calendar.getInstance();
-        int hour = now.get(Calendar.HOUR_OF_DAY);
-        int minute = now.get(Calendar.MINUTE);
+        Calendar agora = Calendar.getInstance();
+        int hora = agora.get(Calendar.HOUR_OF_DAY);
+        int minuto = agora.get(Calendar.MINUTE);
 
-        return new TimePickerDialog(getActivity(), this, hour, minute, true);
+        return new TimePickerDialog(getActivity(), this, hora, minuto, true);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class TimeDialog extends AppCompatDialogFragment implements TimePickerDia
     }
 
     @Override
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        listener.onTimeSet(hourOfDay, minute);
+    public void onTimeSet(TimePicker view, int horaDoDia, int minuto) {
+        listener.onTimeSet(horaDoDia, minuto);
     }
 
     public interface OnTimeSetListener{
-        void onTimeSet(int hour, int minute);
+        void onTimeSet(int hora, int minuto);
     }
 
 }
